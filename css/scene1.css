@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(120deg, #f08b4f, #e07b2f);
+  overflow-x: hidden;
+  position: relative;
+}
+
+#scene-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  transition: opacity 0.5s;
+  overflow: hidden;
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: white;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.scene-text {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.floating-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* รูปเต็ม div */
+  border-radius: 10px;
+}
+
+.floating-photo {
+  position: absolute;
+  bottom: -150px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-weight: bold;
+  animation-name: floatUpScene1;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floatUpScene1 {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.2
+  }
+
+  30% {
+    opacity: 0.7
+  }
+
+  50% {
+    transform: translateY(-50vh) rotate(5deg);
+    opacity: 1
+  }
+
+  70% {
+    transform: translateY(-80vh) rotate(-5deg);
+    opacity: 0.7
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 0
+  }
+}
+
+.bubble-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+  /* อยู่ด้านหลังตัวอักษร */
+}
+
+.bubble {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  animation: bubbleUp 6s linear infinite;
+}
+
+.bubble:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(4) {
+  left: 70%;
+  animation-delay: 3s;
+}
+
+.bubble:nth-child(5) {
+  left: 90%;
+  animation-delay: 4s;
+}
+
+/* ลอยจากขอบล่างถึงบนจอ */
+@keyframes bubbleUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-50vh) scale(1.2);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}

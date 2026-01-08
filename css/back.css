@@ -1,0 +1,57 @@
+#back-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    animation: floatBubbleBtn 5s ease-in-out infinite;
+    transition: transform 0.3s, background 0.3s;
+}
+
+#back-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.15);
+}
+
+@keyframes floatBubbleBtn {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-5px, -10px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translate(5px, -15px) rotate(2deg);
+    }
+
+    75% {
+        transform: translate(-3px, -8px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@media(max-width:600px) {
+    #back-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        bottom: 30px;
+        right: 20px;
+    }
+}
